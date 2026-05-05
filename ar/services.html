@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rwabate | الخدمات</title>
+  <link rel="icon" type="image/svg+xml" href="../rwabate-premium-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface: rgba(255,255,255,0.07);
+      --line: rgba(255,255,255,0.11);
+      --primary: #6ed89a;
+      --primary-strong: #2ed07a;
+      --primary-deep: #0fa85b;
+      --text: #f2fbf5;
+      --muted: #a8c2b1;
+      --shadow: 0 24px 70px rgba(0,0,0,0.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Cairo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(110,216,154,0.24), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(47,208,122,0.18), transparent 24%),
+        linear-gradient(180deg, #07160f 0%, #0a1b12 40%, #08130d 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(7,22,15,0.66); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .brand-mark { width: 40px; height: 40px; border-radius: 14px; display: block; box-shadow: 0 12px 30px rgba(46, 208, 122, 0.22); }
+    .brand-name span { color: var(--primary); }
+    .nav-links { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 12px; border: 1px solid transparent; font-weight: 800; font-size: 0.92rem; transition: transform 0.2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--primary-strong), var(--primary-deep)); color: #08130d; }
+    .btn-ghost { color: var(--text); border-color: var(--line); background: rgba(255,255,255,0.05); }
+    main { padding: 34px 0 76px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 20px; align-items: stretch; }
+    .panel { background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.05)); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
+    .panel-inner { padding: 30px; }
+    .eyebrow { display: inline-flex; padding: 7px 12px; border-radius: 999px; background: rgba(110,216,154,0.14); border: 1px solid rgba(110,216,154,0.22); color: var(--primary); font-size: 0.78rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 18px; }
+    h1, h2, h3 { margin: 0; }
+    h1 { font-size: clamp(2.45rem, 5vw, 4.6rem); line-height: 1; letter-spacing: -1px; margin-bottom: 16px; max-width: 12ch; }
+    h2 { font-size: clamp(1.45rem, 2.6vw, 2.15rem); margin-bottom: 10px; }
+    h3 { font-size: 1.02rem; margin-bottom: 10px; }
+    .lead, p { color: var(--muted); }
+    .lead { font-size: 1.05rem; line-height: 1.9; }
+    .grid { display: grid; gap: 16px; }
+    .hero-copy { display: grid; gap: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-points { display: flex; flex-wrap: wrap; gap: 10px; }
+    .point { padding: 9px 12px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); color: var(--text); font-size: 0.82rem; font-weight: 700; }
+    .hero-aside { display: grid; gap: 16px; align-content: start; }
+    .stat-card { padding: 18px; border-radius: 22px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); }
+    .stat-card strong { display: block; color: var(--primary); font-size: 1.8rem; margin-bottom: 6px; font-weight: 800; }
+    .stat-card p { margin: 0; line-height: 1.7; }
+    .stack-list { display: grid; gap: 12px; }
+    .stack-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .stack-row:last-child { border-bottom: none; }
+    .stack-key { color: var(--primary); font-weight: 800; }
+    .services { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; }
+    .card { padding: 22px; border-radius: 22px; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+    .accent-line { width: 68px; height: 3px; border-radius: 999px; background: linear-gradient(90deg, var(--primary-strong), transparent); margin-bottom: 14px; }
+    .service-tag { padding: 6px 10px; border-radius: 999px; background: rgba(110,216,154,0.12); border: 1px solid rgba(110,216,154,0.18); color: var(--primary); font-size: 0.76rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+    .card-list { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+    .card-list li { position: relative; padding-right: 16px; color: var(--muted); line-height: 1.6; }
+    .card-list li::before { content: ""; position: absolute; right: 0; top: 0.68em; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+    .section { padding: 30px 0 0; }
+    .section-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; flex-wrap: wrap; margin-bottom: 18px; }
+    .section-lead { max-width: 72ch; margin: 0; line-height: 1.85; }
+    .service-grid { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mini { padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); }
+    .mini strong { display: block; color: var(--primary); margin-bottom: 8px; }
+    .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 18px; }
+    .step { padding: 18px; border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)); border: 1px solid var(--line); }
+    .step strong { display: inline-flex; color: var(--primary); font-size: 1rem; margin-bottom: 10px; }
+    .cta { margin-top: 30px; padding: 24px; border-radius: 26px; border: 1px solid rgba(110,216,154,0.18); background: linear-gradient(135deg, rgba(46,208,122,0.14), rgba(255,255,255,0.05)); display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .cta p { margin: 0; max-width: 62ch; line-height: 1.8; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 34px; color: var(--muted); font-size: 0.92rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+    @media (max-width: 960px) { .hero, .services, .service-grid, .process-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) { .panel-inner { padding: 22px; } .section { padding-top: 24px; } .cta { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="brand-mark" src="../rwabate-premium-icon.svg" alt="Rwabate logo" />
+        <div class="brand-name">Rwa<span>bate</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="btn btn-ghost">الرئيسية</a>
+        <a href="services.html" class="btn btn-primary">الخدمات</a>
+        <a href="team.html" class="btn btn-ghost">الفريق</a>
+        <a href="references.html" class="btn btn-ghost">دراسة حالة</a>
+        <a href="contact.html" class="btn btn-ghost">اتصل بنا</a>
+        <a href="../services.html" class="btn btn-ghost">English</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <article class="panel">
+        <div class="panel-inner">
+          <span class="eyebrow">الخدمات</span>
+          <div class="hero-copy">
+            <div>
+              <h1>مصمم للأتمتة والمنصات الرقمية وتسليم حلول الذكاء الاصطناعي</h1>
+              <p class="lead">تبني Rwabate حلولاً للشركات تربط الأنظمة وتبسط العمليات وتقدم تجارب رقمية حديثة للفرق الداخلية والمستخدمين الخارجيين.</p>
+            </div>
+            <div class="hero-actions">
+              <a href="contact.html" class="btn btn-primary">ناقش مشروعك</a>
+              <a href="references.html" class="btn btn-ghost">عرض دراسة حالة</a>
+            </div>
+            <div class="hero-points">
+              <span class="point">الأتمتة أولاً</span>
+              <span class="point">Angular و CMS</span>
+              <span class="point">.NET و Laravel</span>
+              <span class="point">بنية جاهزة للذكاء الاصطناعي</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="hero-aside">
+        <div class="panel panel-inner">
+          <h2>ما الذي يحصل عليه العميل</h2>
+          <div class="stack-list">
+            <div class="stack-row"><span class="stack-key">الاستراتيجية</span><span>هيكلة واضحة قبل التنفيذ</span></div>
+            <div class="stack-row"><span class="stack-key">التسليم</span><span>نتيجة مصقولة وجاهزة للإنتاج</span></div>
+            <div class="stack-row"><span class="stack-key">الدعم</span><span>نشر وتطوير مستمر</span></div>
+          </div>
+        </div>
+        <div class="panel panel-inner">
+          <div class="stat-card"><strong>06</strong><p>مجالات خدمة أساسية تشمل الأتمتة والواجهة الخلفية والواجهة الأمامية والتشغيل والذكاء الاصطناعي.</p></div>
+          <div class="stat-card" style="margin-top: 14px;"><strong>03</strong><p>مراحل تسليم واضحة: الاستكشاف، البناء، ثم الإطلاق مع إمكانية دعم لاحق.</p></div>
+        </div>
+        <div class="panel panel-inner">
+          <h2>حزمة التسليم</h2>
+          <div class="stack-list">
+            <div class="stack-row"><span class="stack-key">الواجهة الأمامية</span><span>Angular</span></div>
+            <div class="stack-row"><span class="stack-key">الواجهة الخلفية</span><span>.NET Core / Laravel</span></div>
+            <div class="stack-row"><span class="stack-key">الأتمتة</span><span>n8n</span></div>
+            <div class="stack-row"><span class="stack-key">التشغيل</span><span>CI/CD والمراقبة</span></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>مجالات الخدمة</h2>
+          <p class="section-lead">كل خدمة هنا مرتبطة بنتيجة عملية واضحة وليست مجرد عنوان تقني.</p>
+        </div>
+      </div>
+      <div class="grid service-grid">
+        <article class="card"><div class="card-head"><div><div class="accent-line"></div><h3>أتمتة الأعمال</h3></div><span class="service-tag">Workflow</span></div><p>أتمتة المهام المتكررة وربط الأنظمة وتحسين التدفقات التشغيلية عبر المنصات المتصلة.</p><ul class="card-list"><li>تقليل الأعمال اليدوية</li><li>نقل بيانات موثوق بين الأدوات</li><li>إبقاء حالات العملية واضحة</li></ul></article>
+        <article class="card"><div class="card-head"><div><div class="accent-line"></div><h3>منصات CMS</h3></div><span class="service-tag">Content</span></div><p>أنظمة إدارة محتوى مخصصة للمنظمات التي تحتاج تحكماً أكبر في مواقعها وسير النشر.</p><ul class="card-list"><li>بناء صفحات ومحتوى قابل للتعديل</li><li>مسارات نشر مبنية حسب الأدوار</li><li>مصممة لتناسب الفريق الداخلي</li></ul></article>
+        <article class="card"><div class="card-head"><div><div class="accent-line"></div><h3>الهندسة الخلفية</h3></div><span class="service-tag">API</span></div><p>تصميم واجهات API والتكاملات والمنطق التجاري باستخدام .NET Core أو Laravel بحسب الحاجة.</p><ul class="card-list"><li>واجهات آمنة وطبقات تكامل</li><li>قواعد عمل والتحقق من البيانات</li><li>مرونة في اختيار التقنية</li></ul></article>
+        <article class="card"><div class="card-head"><div><div class="accent-line"></div><h3>واجهات Angular</h3></div><span class="service-tag">UI</span></div><p>لوحات وتحكمات داخلية تعرض العمليات المعقدة بطريقة بسيطة وواضحة وسهلة الإدارة.</p><ul class="card-list"><li>لوحات تشغيلية غنية بالمعلومات</li><li>واجهات واضحة للفِرَق والإدارة</li><li>سرعة ووضوح في الاستخدام</li></ul></article>
+        <article class="card"><div class="card-head"><div><div class="accent-line"></div><h3>خدمات DevOps</h3></div><span class="service-tag">Ops</span></div><p>مسارات نشر ومراقبة وتجهيزات إنتاج تضمن استقرار الإصدارات.</p><ul class="card-list"><li>نشر أكثر أماناً</li><li>مراقبة صحة النظام</li><li>إعداد البيئات والدعم التشغيلي</li></ul></article>
+        <article class="card"><div class="card-head"><div><div class="accent-line"></div><h3>الذكاء الاصطناعي والبيانات</h3></div><span class="service-tag">AI</span></div><p>دعم التعلم الآلي والتحليلات والميزات الذكية بخبرة محمد مبيض.</p><ul class="card-list"><li>رؤى وتقارير معتمدة على البيانات</li><li>ميزات ذكية تحسن سير العمل</li><li>استراتيجية AI قابلة للتطبيق</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>كيف نعمل</h2>
+          <p class="section-lead">سير عمل بسيط يحافظ على وضوح النطاق ويجعل النتيجة النهائية جاهزة للإنتاج.</p>
+        </div>
+      </div>
+      <div class="grid process-grid">
+        <article class="step"><strong>01 الاستكشاف</strong><p>نحدد المشكلة والمستخدمين والأنظمة والقيود قبل بدء التنفيذ.</p></article>
+        <article class="step"><strong>02 التصميم + البناء</strong><p>ننقل الواجهة الخلفية والواجهة الأمامية والأتمتة في نفس الوقت بدل فصلها.</p></article>
+        <article class="step"><strong>03 الاختبار + الإطلاق</strong><p>نراجع الحل وننشره ونضبط التجربة بحسب الاستخدام الحقيقي.</p></article>
+        <article class="step"><strong>04 الدعم</strong><p>يمكننا الاستمرار في التحديث والمراقبة والتطوير طويل المدى.</p></article>
+      </div>
+      <div class="cta">
+        <div>
+          <h2>هل تحتاج إلى مزيج خدمات يناسب فريقك؟</h2>
+          <p>من تدفق أتمتة واحد إلى بناء منصة كاملة، نستطيع صياغة النطاق بما يخدم أولويات العمل لديك.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary">ابدأ المحادثة</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>Rwabate</div>
+      <div>الأتمتة، المنصات الرقمية، وحلول الذكاء الاصطناعي</div>
+    </div>
+  </footer>
+</body>
+</html>

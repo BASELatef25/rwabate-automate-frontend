@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rwabate | Contact</title>
+  <link rel="icon" type="image/svg+xml" href="rwabate-premium-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07160f; --surface: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.11);
+      --primary: #6ed89a; --primary-strong: #2ed07a; --primary-deep: #0fa85b;
+      --text: #f2fbf5; --muted: #a8c2b1; --shadow: 0 24px 70px rgba(0,0,0,0.32);
+    }
+    * { box-sizing: border-box; } html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: "Manrope", sans-serif; color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(110,216,154,0.24), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(47,208,122,0.18), transparent 24%),
+        linear-gradient(180deg, #07160f 0%, #0a1b12 40%, #08130d 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(7,22,15,0.66); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .brand-mark { width: 40px; height: 40px; border-radius: 14px; display: block; }
+    .brand-name span { color: var(--primary); }
+    .nav-links { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 12px; border: 1px solid transparent; font-weight: 800; font-size: 0.92rem; transition: transform 0.2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--primary-strong), var(--primary-deep)); color: #08130d; }
+    .btn-ghost { color: var(--text); border-color: var(--line); background: rgba(255,255,255,0.05); }
+    main { padding: 34px 0 76px; }
+    .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 20px; align-items: stretch; }
+    .panel { background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.05)); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
+    .panel-inner { padding: 30px; }
+    .eyebrow { display: inline-flex; padding: 7px 12px; border-radius: 999px; background: rgba(110,216,154,0.14); border: 1px solid rgba(110,216,154,0.22); color: var(--primary); font-size: 0.78rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 18px; }
+    h1, h2, h3 { margin: 0; } h1 { font-family: "Playfair Display", serif; font-size: clamp(2.3rem, 4.8vw, 4.2rem); line-height: 0.98; letter-spacing: -1px; margin-bottom: 16px; }
+    h2 { font-family: "Playfair Display", serif; font-size: clamp(1.45rem, 2.6vw, 2.15rem); margin-bottom: 10px; }
+    .lead, p { color: var(--muted); } .lead { font-size: 1.05rem; line-height: 1.8; }
+    .stack { display: grid; gap: 14px; margin-top: 18px; }
+    .item {
+      padding: 18px; border-radius: 18px;
+      background: rgba(255,255,255,0.06); border: 1px solid var(--line);
+    }
+    .item strong { display: block; color: var(--primary); margin-bottom: 8px; }
+    .form {
+      display: grid; gap: 12px; margin-top: 18px;
+    }
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+    .label {
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+    .input, .textarea {
+      width: 100%; padding: 14px 16px; border-radius: 14px;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.05); color: var(--text);
+      font: inherit;
+    }
+    .input:focus, .textarea:focus {
+      outline: none;
+      border-color: rgba(110,216,154,0.45);
+      box-shadow: 0 0 0 3px rgba(110,216,154,0.12);
+    }
+    .textarea { min-height: 160px; resize: vertical; }
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 4px;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      border-color: var(--line);
+    }
+    .note { margin-top: 12px; font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+    .status {
+      min-height: 1.4em;
+      margin: 0;
+      color: var(--primary);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 34px; color: var(--muted); font-size: 0.92rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+    @media (max-width: 960px) { .hero { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="brand-mark" src="rwabate-premium-icon.svg" alt="Rwabate logo" />
+        <div class="brand-name">Rwa<span>bate</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="btn btn-ghost">Home</a>
+        <a href="services.html" class="btn btn-ghost">Services</a>
+        <a href="team.html" class="btn btn-ghost">Team</a>
+        <a href="references.html" class="btn btn-ghost">Case Study</a>
+        <a href="contact.html" class="btn btn-primary">Contact</a>
+        <a href="ar/contact.html" class="btn btn-ghost">العربية</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <article class="panel">
+        <div class="panel-inner">
+          <span class="eyebrow">Contact</span>
+          <h1>Start Your Next Company Project</h1>
+          <p class="lead">
+            Tell us about your automation, website, or AI needs and we’ll help shape a practical solution around your goals.
+          </p>
+
+          <div class="stack">
+            <div class="item"><strong>Email</strong><p>hello@rwabate.com</p></div>
+            <div class="item"><strong>WhatsApp</strong><p><a href="https://wa.me/962780784795">0780784795</a></p></div>
+            <div class="item"><strong>Website</strong><p>rwabate.com</p></div>
+            <div class="item"><strong>Focus</strong><p>Automation, web platforms, and AI solutions</p></div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="panel panel-inner">
+        <h2>Send a Message</h2>
+        <form class="form" id="contact-form">
+          <div class="field">
+            <label class="label" for="name">Your name</label>
+            <input class="input" id="name" type="text" name="name" placeholder="Your name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label class="label" for="email">Your email</label>
+            <input class="input" id="email" type="email" name="email" placeholder="Your email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label class="label" for="subject">Project subject</label>
+            <input class="input" id="subject" type="text" name="subject" placeholder="Project subject" required />
+          </div>
+          <div class="field">
+            <label class="label" for="message">Project details</label>
+            <textarea class="textarea" id="message" name="message" placeholder="Tell us about your project" required></textarea>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Send Inquiry</button>
+            <button class="btn btn-secondary" type="button" id="copy-email">Copy Email</button>
+          </div>
+          <p class="status" id="form-status" aria-live="polite"></p>
+        </form>
+        <div class="note">This form opens a prefilled email draft in your mail app. If you want a server-backed submission next, I can wire that in too.</div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>Rwabate</div>
+      <div>hello@rwabate.com</div>
+    </div>
+  </footer>
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+    const copyEmailButton = document.getElementById('copy-email');
+    const recipient = 'hello@rwabate.com';
+
+    function buildMailtoUrl(data) {
+      const subject = `Rwabate inquiry: ${data.subject}`;
+      const body = [
+        `Name: ${data.name}`,
+        `Email: ${data.email}`,
+        '',
+        data.message
+      ].join('\n');
+
+      return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!form.reportValidity()) {
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      status.textContent = 'Opening your email app with a prefilled message...';
+      window.location.href = buildMailtoUrl(data);
+    });
+
+    copyEmailButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(recipient);
+        status.textContent = 'Email address copied to clipboard.';
+      } catch (error) {
+        status.textContent = `Copy failed. Use ${recipient} manually.`;
+      }
+    });
+  </script>
+</body>
+</html>

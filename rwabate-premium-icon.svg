@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rwabate premium icon">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="60" x2="440" y2="452" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#133A25"/>
+      <stop offset="1" stop-color="#06160E"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="176" y1="162" x2="336" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8CF0B4"/>
+      <stop offset="1" stop-color="#2ED07A"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="220" y1="186" x2="304" y2="326" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4FFF7"/>
+      <stop offset="1" stop-color="#BFF7D5"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="36" y="36" width="440" height="440" rx="112" fill="url(#bg)"/>
+
+  <circle cx="256" cy="256" r="132" stroke="url(#glow)" stroke-width="14" opacity="0.9"/>
+  <circle cx="256" cy="256" r="98" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="2"/>
+
+  <path d="M190 176H276C322 176 356 208 356 252C356 287 337 312 308 325L356 380H302L261 332H228V380H190V176Z" fill="url(#shine)"/>
+  <path d="M228 208H268C290 208 306 222 306 244C306 266 291 280 268 280H228V208Z" fill="#1D8F52"/>
+
+  <path d="M238 326C276 293 310 270 346 252" stroke="#8CF0B4" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="238" cy="326" r="11" fill="#F4FFF7"/>
+  <circle cx="346" cy="252" r="11" fill="#F4FFF7"/>
+  <circle cx="284" cy="210" r="9" fill="#F4FFF7" opacity="0.9"/>
+
+  <path d="M180 356C206 322 224 297 246 278" stroke="#F4FFF7" stroke-width="10" stroke-linecap="round" opacity="0.65"/>
+  <path d="M322 176C306 186 292 196 278 208" stroke="#F4FFF7" stroke-width="10" stroke-linecap="round" opacity="0.55"/>
+
+  <path d="M326 146C348 146 366 162 366 182C366 202 348 218 326 218C338 199 338 166 326 146Z" fill="#8CF0B4" opacity="0.16"/>
+</svg>

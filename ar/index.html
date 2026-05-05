@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rwabate | الصفحة الرئيسية</title>
+  <link rel="icon" type="image/svg+xml" href="../rwabate-premium-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07160f;
+      --surface: rgba(255,255,255,0.07);
+      --line: rgba(255,255,255,0.11);
+      --primary: #6ed89a;
+      --primary-strong: #2ed07a;
+      --primary-deep: #0fa85b;
+      --text: #f2fbf5;
+      --muted: #a8c2b1;
+      --shadow: 0 24px 70px rgba(0,0,0,0.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Cairo", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(110,216,154,0.24), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(47,208,122,0.18), transparent 24%),
+        linear-gradient(180deg, #07160f 0%, #0a1b12 40%, #08130d 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(7,22,15,0.66);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+    }
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: block;
+      box-shadow: 0 12px 30px rgba(46, 208, 122, 0.22);
+    }
+    .brand-name span { color: var(--primary); }
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-strong), var(--primary-deep));
+      color: #08130d;
+      box-shadow: 0 14px 34px rgba(46, 208, 122, 0.22);
+    }
+    .btn-ghost {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.05);
+    }
+    main { padding: 28px 0 80px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 20px;
+      align-items: stretch;
+      padding: 18px 0 12px;
+    }
+    .panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.06));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .panel-inner { padding: 30px; }
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 0 -20%;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110,216,154,0.22), transparent 68%);
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(110,216,154,0.14);
+      border: 1px solid rgba(110,216,154,0.22);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1, h2, h3 { margin: 0; }
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+      max-width: 12ch;
+    }
+    h2 {
+      font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+      margin-bottom: 10px;
+    }
+    h3 { font-size: 1.05rem; margin-bottom: 10px; }
+    .subtitle,
+    .section-lead,
+    p { color: var(--muted); }
+    .subtitle {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      max-width: 60ch;
+      margin-bottom: 24px;
+    }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-aside { display: grid; gap: 14px; align-content: start; }
+    .metric-card,
+    .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+    .metric-card { padding: 22px; }
+    .metric {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .metric:last-child { border-bottom: none; }
+    .metric strong { font-size: 2rem; color: var(--primary); font-weight: 800; }
+    .metric span { color: var(--text); font-weight: 700; }
+    .mini-card { padding: 22px; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)); }
+    .mini-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .mini-card p { margin: 0; line-height: 1.8; }
+    section { padding: 26px 0 56px; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .section-lead { max-width: 72ch; line-height: 1.85; margin: 0; }
+    .grid { display: grid; gap: 16px; }
+    .services { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 18px; }
+    .card,
+    .case-card,
+    .team-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .accent-line { width: 68px; height: 3px; border-radius: 999px; background: linear-gradient(90deg, var(--primary-strong), transparent); margin-bottom: 14px; }
+    .case-band { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .case-label, .team-role {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(110,216,154,0.12);
+      border: 1px solid rgba(110,216,154,0.18);
+      color: var(--primary);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .bio-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+    }
+    .bio-card strong { display: block; color: var(--primary); margin-bottom: 8px; }
+    .cta {
+      margin-top: 8px;
+      padding: 24px;
+      border-radius: 26px;
+      border: 1px solid rgba(110,216,154,0.18);
+      background: linear-gradient(135deg, rgba(46,208,122,0.14), rgba(255,255,255,0.05));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .cta p { margin: 0; max-width: 62ch; line-height: 1.8; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 34px; color: var(--muted); font-size: 0.92rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+    @media (max-width: 960px) { .hero, .services, .case-band, .bio-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 720px) { .panel-inner { padding: 22px; } .section { padding-bottom: 42px; } .cta { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="brand-mark" src="../rwabate-premium-icon.svg" alt="Rwabate logo" />
+        <div class="brand-name">Rwa<span>bate</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="btn btn-primary">الرئيسية</a>
+        <a href="services.html" class="btn btn-ghost">الخدمات</a>
+        <a href="team.html" class="btn btn-ghost">الفريق</a>
+        <a href="references.html" class="btn btn-ghost">دراسة حالة</a>
+        <a href="contact.html" class="btn btn-ghost">اتصل بنا</a>
+        <a href="../index.html" class="btn btn-ghost">English</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="panel">
+        <div class="panel-inner">
+          <span class="eyebrow">استوديو الأنظمة الرقمية</span>
+          <h1>الأتمتة والمنصات الرقمية وحلول الذكاء الاصطناعي للفرق الحديثة</h1>
+          <p class="subtitle">نصمم ونبني أنظمة احترافية للشركات تساعد على تبسيط العمليات وربط المنصات وتحقيق قيمة واضحة من خلال الأتمتة والواجهات النظيفة والتقنيات الذكية.</p>
+          <div class="actions">
+            <a href="references.html" class="btn btn-primary">عرض دراسة الحالة</a>
+            <a href="team.html" class="btn btn-ghost">تعرف على الفريق</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-aside">
+        <div class="metric-card">
+          <div class="metric"><strong>01</strong><span>تسليم يعتمد على الأتمتة</span></div>
+          <div class="metric"><strong>02</strong><span>مواقع شركات وأنظمة CMS</span></div>
+          <div class="metric"><strong>03</strong><span>دعم للذكاء الاصطناعي والتعلم الآلي</span></div>
+        </div>
+        <div class="mini-card">
+          <span class="mini-kicker">التركيز</span>
+          <p>نصنع أدوات للمنظمات التي تحتاج إلى أتمتة موثوقة وهيكلية قوية وحضور رقمي بمستوى احترافي.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head">
+        <div>
+          <h2>الخدمات الأساسية</h2>
+          <p class="section-lead">خدمات مركزة للشركات التي تريد حلولاً عملية بدل القوالب العامة.</p>
+        </div>
+      </div>
+      <div class="grid services">
+        <article class="card"><div class="accent-line"></div><h3>أتمتة الأعمال</h3><p>أتمتة العمليات المتكررة وربط البيانات وتحسين التدفقات التشغيلية بين الأنظمة المختلفة.</p></article>
+        <article class="card"><div class="accent-line"></div><h3>تطوير الواجهات الخلفية</h3><p>منصات Backend آمنة باستخدام .NET Core أو Laravel للواجهات البرمجية والتكاملات والمنطق التجاري.</p></article>
+        <article class="card"><div class="accent-line"></div><h3>الواجهات الأمامية</h3><p>واجهات Angular تعرض العمليات المعقدة بطريقة واضحة وسهلة الاستخدام للفرق الداخلية.</p></article>
+        <article class="card"><div class="accent-line"></div><h3>خدمات DevOps</h3><p>مسارات نشر ومراقبة وتجهيزات تشغيلية تدعم الاستقرار في بيئات الإنتاج.</p></article>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head">
+        <div>
+          <h2>القدرات المختارة</h2>
+          <p class="section-lead">العمل لدينا مصمم ليبدو احترافياً ويعمل بثبات وينمو مع المؤسسة.</p>
+        </div>
+      </div>
+      <div class="grid case-band">
+        <article class="case-card"><span class="case-label">تسليم مؤسسي</span><h3>مصمم للعمليات الواقعية</h3><p>نركز على سير العمل الذي يحسن العمليات اليومية ويقلل الجهد اليدوي.</p></article>
+        <article class="case-card"><span class="case-label">تكامل الأنظمة</span><h3>منصة واحدة مترابطة</h3><p>نربط أنظمة الجامعة وأدوات التعلم والتعاون ولوحات التحكم في تدفق واحد موحد.</p></article>
+        <article class="case-card"><span class="case-label">جاهز للذكاء الاصطناعي</span><h3>البيانات والذكاء</h3><p>يمكن لفريقنا توسيع المنصات بالتحليلات والتعلم الآلي وميزات اتخاذ القرار الذكية.</p></article>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-head">
+        <div>
+          <h2>الفريق القيادي</h2>
+          <p class="section-lead">شراكة مركزة تجمع بين هندسة الأتمتة وخبرة البيانات والتعلم الآلي.</p>
+        </div>
+      </div>
+      <div class="grid bio-grid">
+        <article class="team-card">
+          <span class="team-role">المؤسس | مهندس أتمتة</span>
+          <h3>باسل عاطف</h3>
+          <p>متخصص في منصات CMS وأتمتة .NET ولوحات Angular وتكامل الأنظمة لسير العمل التشغيلي.</p>
+          <div class="tag-list">
+            <span class="tag">.NET Core</span><span class="tag">Angular</span><span class="tag">n8n</span><span class="tag">CMS</span>
+          </div>
+        </article>
+        <article class="team-card">
+          <span class="team-role">شريك | خبير ذكاء اصطناعي</span>
+              <h3>محمد مبيض</h3>
+          <p>يعمل على علم البيانات والتعلم الآلي والتحليلات والميزات الذكية التي تعزز المنتجات واتخاذ القرار.</p>
+          <div class="tag-list">
+            <span class="tag">Machine Learning</span><span class="tag">Data Science</span><span class="tag">AI Strategy</span><span class="tag">Analytics</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cta">
+        <div>
+          <h2>لنصنع منتجاً رقمياً احترافياً</h2>
+          <p>من المواقع المؤسسية إلى منصات الأتمتة ودعم الذكاء الاصطناعي، نستطيع تصميم الحل المناسب لمنظمتك.</p>
+        </div>
+        <a href="contact.html" class="btn btn-primary">ابدأ المحادثة</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>Rwabate</div>
+      <div>الأتمتة، المنصات الرقمية، وحلول الذكاء الاصطناعي</div>
+    </div>
+  </footer>
+</body>
+</html>

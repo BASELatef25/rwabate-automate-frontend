@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rwabate | دراسة حالة</title>
+  <link rel="icon" type="image/svg+xml" href="../rwabate-premium-icon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface: rgba(255,255,255,0.07); --line: rgba(255,255,255,0.11);
+      --primary: #6ed89a; --primary-strong: #2ed07a; --primary-deep: #0fa85b;
+      --text: #f2fbf5; --muted: #a8c2b1; --shadow: 0 24px 70px rgba(0,0,0,0.32);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; font-family: "Cairo", sans-serif; color: var(--text);
+      background:
+        radial-gradient(circle at 12% 12%, rgba(110,216,154,0.24), transparent 22%),
+        radial-gradient(circle at 82% 18%, rgba(47,208,122,0.18), transparent 24%),
+        linear-gradient(180deg, #07160f 0%, #0a1b12 40%, #08130d 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1180px, 92%); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 20; background: rgba(7,22,15,0.66); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+    .brand-mark { width: 40px; height: 40px; border-radius: 14px; display: block; box-shadow: 0 12px 30px rgba(46, 208, 122, 0.22); }
+    .brand-name span { color: var(--primary); }
+    .nav-links { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 12px; border: 1px solid transparent; font-weight: 800; font-size: 0.92rem; transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, var(--primary-strong), var(--primary-deep)); color: #08130d; box-shadow: 0 14px 34px rgba(46, 208, 122, 0.22); }
+    .btn-ghost { color: var(--text); border-color: var(--line); background: rgba(255,255,255,0.05); }
+    main { padding: 28px 0 76px; }
+    .hero { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 20px; align-items: start; }
+    .panel { position: relative; background: linear-gradient(180deg, rgba(255,255,255,0.09), rgba(255,255,255,0.05)); border: 1px solid var(--line); border-radius: 28px; box-shadow: var(--shadow); overflow: hidden; }
+    .panel-inner { padding: 30px; }
+    .panel::before { content: ""; position: absolute; inset: auto auto 0 -18%; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(110,216,154,0.18), transparent 68%); pointer-events: none; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px; border-radius: 999px; background: rgba(110,216,154,0.14); border: 1px solid rgba(110,216,154,0.22); color: var(--primary); font-size: 0.78rem; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 18px; }
+    h1, h2, h3 { margin: 0; }
+    h1 { font-size: clamp(2.3rem, 4.8vw, 4.4rem); line-height: 1; letter-spacing: -1px; margin-bottom: 16px; }
+    h2 { font-size: clamp(1.45rem, 2.6vw, 2.15rem); margin-bottom: 10px; }
+    h3 { font-size: 1.02rem; margin-bottom: 10px; }
+    .lead, p { color: var(--muted); }
+    .lead { font-size: 1.05rem; line-height: 1.85; margin-bottom: 0; }
+    .grid { display: grid; gap: 16px; }
+    .blocks { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; }
+    .block { padding: 18px; border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)); border: 1px solid var(--line); }
+    .block .label { display: inline-flex; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: rgba(110,216,154,0.12); color: var(--primary); font-size: 0.77rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+    .full-width { margin-top: 16px; padding: 18px; border-radius: 18px; background: linear-gradient(135deg, rgba(46,208,122,0.12), rgba(255,255,255,0.04)); border: 1px solid rgba(110,216,154,0.18); }
+    .sidebar { display: grid; gap: 16px; }
+    .stack-list { display: grid; gap: 10px; margin-top: 14px; }
+    .stack-row { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+    .stack-row:last-child { border-bottom: none; }
+    .stack-key { color: var(--primary); font-weight: 800; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+    .kpi { text-align: center; padding: 18px; border-radius: 20px; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .kpi strong { display: block; font-size: 1.4rem; color: var(--primary); margin-bottom: 6px; }
+    .kpi span { color: var(--muted); }
+    .section-head { display: flex; justify-content: space-between; gap: 16px; align-items: end; flex-wrap: wrap; margin-bottom: 16px; }
+    .timeline { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+    .step { padding: 16px; border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04)); border: 1px solid var(--line); }
+    .step strong { display: inline-flex; margin-bottom: 8px; font-size: 0.8rem; letter-spacing: 1px; color: var(--primary); text-transform: uppercase; }
+    .step p { margin: 0; line-height: 1.75; }
+    footer { border-top: 1px solid var(--line); padding: 24px 0 34px; color: var(--muted); font-size: 0.92rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 12px; align-items: center; flex-wrap: wrap; }
+    @media (max-width: 960px) { .hero, .blocks, .kpi-grid, .timeline { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img class="brand-mark" src="../rwabate-premium-icon.svg" alt="Rwabate logo" />
+        <div class="brand-name">Rwa<span>bate</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="btn btn-ghost">الرئيسية</a>
+        <a href="services.html" class="btn btn-ghost">الخدمات</a>
+        <a href="team.html" class="btn btn-ghost">الفريق</a>
+        <a href="contact.html" class="btn btn-primary">اتصل بنا</a>
+        <a href="../references.html" class="btn btn-ghost">English</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <article class="panel">
+        <div class="panel-inner">
+          <span class="eyebrow">دراسة حالة</span>
+          <h1>منصة أتمتة لجامعة</h1>
+          <p class="lead">نموذج يوضح كيف جمعت Rwabate بين CMS مخصص وطبقة .NET وn8n وواجهة Angular لتقليل الأعمال اليدوية وربط الأنظمة في مسار واحد واضح.</p>
+
+          <div class="grid blocks">
+            <div class="block"><span class="label">تسليم CMS</span><h3>إدارة محتوى الموقع</h3><p>أنشأنا نظام CMS مخصصاً منح الجهة تحكماً كاملاً في المحتوى وسير النشر.</p></div>
+            <div class="block"><span class="label">أتمتة الخلفية</span><h3>طبقة تكامل .NET</h3><p>استخرجت خدمة .NET بيانات الطلاب والمدربين والمقررات من نظام الجامعة.</p></div>
+            <div class="block"><span class="label">تنسيق العمليات</span><h3>مزامنة n8n</h3><p>نسقت n8n عملية المزامنة مع Moodle وMicrosoft Teams وفق جدول مُدار.</p></div>
+            <div class="block"><span class="label">لوحة التشغيل</span><h3>مركز تحكم Angular</h3><p>قدمت واجهة Angular مراقبة ومتابعة وتحكم في حالة المزامنة.</p></div>
+          </div>
+
+          <div class="full-width">
+            <h2>النتيجة العملية</h2>
+            <p>قللت المنصة من معالجة البيانات يدوياً، وحسنت الاتساق بين الأنظمة، ووضعت عملية تشغيل واضحة للإدارة اليومية.</p>
+          </div>
+
+          <div class="section-head" style="margin-top:24px;">
+            <div>
+              <h2>تدفق التسليم</h2>
+              <p class="lead">كيف تم ترتيب المنصة من مصدر البيانات إلى لوحة التشغيل.</p>
+            </div>
+          </div>
+          <div class="timeline">
+            <div class="step"><strong>01</strong><p>تم سحب البيانات من نظام الجامعة.</p></div>
+            <div class="step"><strong>02</strong><p>تحققت طبقة .NET من السجلات وجهزتها.</p></div>
+            <div class="step"><strong>03</strong><p>قامت n8n بمزامنة البيانات مع Moodle وTeams.</p></div>
+            <div class="step"><strong>04</strong><p>عرضت Angular حالة المزامنة وأدوات التحكم.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="sidebar">
+        <article class="panel panel-inner">
+          <h2>حزمة التقنية</h2>
+          <div class="stack-list">
+            <div class="stack-row"><span class="stack-key">الخلفية</span><span>.NET Core</span></div>
+            <div class="stack-row"><span class="stack-key">الأتمتة</span><span>n8n</span></div>
+            <div class="stack-row"><span class="stack-key">الواجهة</span><span>Angular</span></div>
+            <div class="stack-row"><span class="stack-key">LMS</span><span>Moodle</span></div>
+            <div class="stack-row"><span class="stack-key">التعاون</span><span>Microsoft Teams</span></div>
+            <div class="stack-row"><span class="stack-key">CMS</span><span>مخصص</span></div>
+            <div class="stack-row"><span class="stack-key">التسليم</span><span>CI/CD والمراقبة</span></div>
+          </div>
+        </article>
+        <article class="panel panel-inner">
+          <h2>حقائق أساسية</h2>
+          <div class="stack-list">
+            <div class="stack-row"><span class="stack-key">القطاع</span><span>التعليم العالي</span></div>
+            <div class="stack-row"><span class="stack-key">النوع</span><span>منصة أتمتة</span></div>
+            <div class="stack-row"><span class="stack-key">الحالة</span><span>مرجع إنتاجي</span></div>
+          </div>
+          <div style="margin-top:18px;">
+            <a href="contact.html" class="btn btn-primary" style="width:100%;">ناقش مشروعاً مشابهاً</a>
+          </div>
+        </article>
+      </aside>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>الفريق خلف العمل</h2>
+          <p class="lead">شركة مركزة تجمع بين هندسة الأتمتة وخبرة الذكاء الاصطناعي وعلوم البيانات.</p>
+        </div>
+      </div>
+      <div class="kpi-grid">
+        <article class="kpi"><strong>باسل عاطف</strong><span>المؤسس ومهندس الأتمتة</span></article>
+          <article class="kpi"><strong>محمد مبيض</strong><span>خبير ذكاء اصطناعي وعلوم بيانات</span></article>
+        <article class="kpi"><strong>من البداية للنهاية</strong><span>من تسليم CMS إلى التكامل والنشر</span></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>Rwabate</div>
+      <div>صفحة مرجعية لمشاريع الأتمتة وتطوير الويب والذكاء الاصطناعي</div>
+    </div>
+  </footer>
+</body>
+</html>
